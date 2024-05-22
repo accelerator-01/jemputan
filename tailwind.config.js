@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        background_1: "url('./background_3.svg')",
+        background_1: "url('./background_3.png')",
       },
       backgroundSize: {
         cover: "cover",
