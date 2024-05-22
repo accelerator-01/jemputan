@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        background_1: "url('./background_3.png')",
+        background_1: "url('./subtle-prism.svg')",
       },
       backgroundSize: {
         cover: "cover",
