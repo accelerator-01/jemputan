@@ -1,6 +1,13 @@
 import PropTypes from "prop-types";
 
-function Button({ children, color = "blue", size = "md", ...props }) {
+function Button({
+  children,
+  onClick,
+  color = "blue",
+  size = "md",
+  className = "",
+  ...props
+}) {
   // Define the base classes for the button
   let baseClasses =
     "font-semibold rounded focus:outline-none focus:ring-2 focus:ring-offset-2";
@@ -22,11 +29,11 @@ function Button({ children, color = "blue", size = "md", ...props }) {
     // Add more sizes as needed
   };
 
-  // Combine base classes with color and size classes
-  const classes = `${baseClasses} ${colorClasses[color]} ${sizeClasses[size]}`;
+  // Combine base classes with color, size, and additional classes
+  const classes = `${baseClasses} ${colorClasses[color]} ${sizeClasses[size]} ${className}`;
 
   return (
-    <button className={classes} {...props}>
+    <button onClick={onClick} className={classes} {...props}>
       {children}
     </button>
   );
@@ -36,9 +43,8 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.oneOf(["blue", "red", "green", "yellow"]),
   size: PropTypes.oneOf(["sm", "md", "lg"]),
-  // to: PropTypes.node.isRequired,
-  // type: PropTypes.node.isRequired,
-  // onClick: PropTypes.node.isRequired,
+  className: PropTypes.node.isRequired,
+  onClick: PropTypes.node.isRequired,
 };
 
 export default Button;

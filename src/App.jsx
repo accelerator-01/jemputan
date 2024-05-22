@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import Home from "./pages/Home";
-// import Footer from "./pages/Footer";
-// import Header from "./pages/Header";
 import Welcome from "./pages/Welcome";
+import "./index.css";
 
 function App() {
   const [showWelcome, setShowWelcome] = useState(true);
@@ -10,7 +9,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowWelcome(false);
-    }, 3000); // 3000 ms = 3 detik
+    }, 1300); // 1300 ms
 
     return () => clearTimeout(timer);
   }, []);
