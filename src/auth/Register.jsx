@@ -1,47 +1,45 @@
+import { useState } from "react";
+import ChooseSchool from "./ChooseSchool";
+import Login from "./Login";
+
 function Register() {
+  const [activeTab, setActiveTab] = useState("Guru");
+
   return (
-    <div className="bg-white p-6 rounded shadow-md w-11/12 md:w-1/2 lg:w-1/3">
-      <h2 className="text-2xl font-bold mb-4">Register</h2>
-      <form>
-        <div className="mb-4">
-          <label className="block text-gray-700">Email</label>
-          <input
-            type="email"
-            className="w-full p-2 border border-gray-300 rounded mt-1"
-          />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-blue-200 p-4">
+      <div className="bg-blue-100 text-center text-2xl font-bold p-2 rounded-md mb-4">
+        JEMPUTAN!!
+      </div>
+      <div className="bg-blue-300 rounded-lg p-4 w-72">
+        <div className="flex justify-between mb-4">
+          <button
+            className={`w-1/2 py-2 rounded-l-lg ${
+              activeTab === "Guru" ? "bg-blue-400 text-white" : "bg-gray-200"
+            }`}
+            onClick={() => setActiveTab("Guru")}
+          >
+            Guru
+          </button>
+          <button
+            className={`w-1/2 py-2 rounded-r-lg ${
+              activeTab === "Wali" ? "bg-blue-400 text-white" : "bg-gray-200"
+            }`}
+            onClick={() => setActiveTab("Wali")}
+          >
+            Wali
+          </button>
         </div>
-        <div className="mb-4">
-          <label className="block text-gray-700">Password</label>
-          <input
-            type="password"
-            className="w-full p-2 border border-gray-300 rounded mt-1"
-          />
+        <div className="bg-blue-200 h-48 rounded-md mb-4">
+          <ChooseSchool />
+          {/* Content goes here */}
         </div>
-        <div className="mb-4">
-          <label className="block text-gray-700">Role</label>
-          <div className="flex space-x-4 mt-1">
-            <label className="flex items-center">
-              <input type="radio" name="role" value="Guru" className="mr-2" />
-              Guru
-            </label>
-            <label className="flex items-center">
-              <input
-                type="radio"
-                name="role"
-                value="Wali Murid"
-                className="mr-2"
-              />
-              Wali Murid
-            </label>
-          </div>
-        </div>
-        <button
-          type="submit"
-          className="w-full bg-green-500 text-white py-2 px-4 rounded"
-        >
-          Register
+        <button className="bg-blue-500 text-white w-full py-2 rounded-lg">
+          Mendaftar
         </button>
-      </form>
+        <div className="text-center mt-4">
+          Sudah terdaftar? <Login className="text-blue-500">Masuk</Login>
+        </div>
+      </div>
     </div>
   );
 }
