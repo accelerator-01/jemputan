@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function Button({
   children,
@@ -6,6 +7,7 @@ function Button({
   color = "blue",
   size = "md",
   className = "",
+  to,
   ...props
 }) {
   // Define the base classes for the button
@@ -32,8 +34,24 @@ function Button({
   // Combine base classes with color, size, and additional classes
   const classes = `${baseClasses} ${colorClasses[color]} ${sizeClasses[size]} ${className}`;
 
+  if (to) {
+    return (
+      <Link to={to} className={classes} {...props}>
+        {children}
+      </Link>
+    );
+  }
+
+  if (onClick) {
+    return (
+      <button onClick={onClick} className={classes} {...props}>
+        {children}
+      </button>
+    );
+  }
+
   return (
-    <button onClick={onClick} className={classes} {...props}>
+    <button onClick={onClick} to={to} className={classes} {...props}>
       {children}
     </button>
   );
@@ -44,7 +62,8 @@ Button.propTypes = {
   color: PropTypes.oneOf(["blue", "red", "green", "yellow"]),
   size: PropTypes.oneOf(["sm", "md", "lg"]),
   className: PropTypes.node.isRequired,
-  onClick: PropTypes.node.isRequired,
+  to: PropTypes.node,
+  onClick: PropTypes.node,
 };
 
 export default Button;
