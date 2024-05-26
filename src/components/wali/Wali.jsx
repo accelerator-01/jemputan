@@ -1,4 +1,4 @@
-import ShareLocation from "../utils/ShareLocation";
+import ShareLocation from "./ShareLocation";
 function Wali() {
   return (
     <div>
