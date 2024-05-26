@@ -1,5 +1,5 @@
 import { useRouteError } from "react-router-dom";
-import LinkButton from "./LinkButton";
+import DirectLink from "./DirectLink";
 
 function Error() {
   const error = useRouteError();
@@ -9,7 +9,7 @@ function Error() {
     <div>
       <h1>Something went wrong 😢</h1>
       <p>{error.data || error.message}</p>
-      <LinkButton to="-1">&larr; Go back</LinkButton>
+      <DirectLink to="-1">&larr; Go back</DirectLink>
     </div>
   );
 }
