@@ -44,7 +44,7 @@ Button.propTypes = {
   color: PropTypes.oneOf(["blue", "red", "green", "yellow"]),
   size: PropTypes.oneOf(["sm", "md", "lg"]),
   className: PropTypes.node.isRequired,
-  onClick: PropTypes.node.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Button;
