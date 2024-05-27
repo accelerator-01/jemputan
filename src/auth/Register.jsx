@@ -4,12 +4,12 @@ import React, { useState } from "react";
 
 const Register = () => {
   const [formData, setFromData] = useState({
-    email: '',
+    nomorhp: '',
     password: '',
     role: 'Wali Murid',
   })
 
-  const { email, password, role } = formData;
+  const { nomorhp, password, role } = formData;
 
   const onChange = (e) => setFromData({
     ...formData,

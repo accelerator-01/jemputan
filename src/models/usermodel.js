@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcrypt'
 
 const userData = new mongoose.Schema({
-    email : {
-        type : String,
+    nomorhp : {
+        type : Number,
         required : true,
         unique : true
     },
