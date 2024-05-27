@@ -6,7 +6,7 @@ function getPosition() {
   });
 }
 
-const fetchLocation = createAsyncThunk(async () => {
+const fetchLocation = createAsyncThunk("school/fetchLocation", async () => {
   const objPosition = await getPosition();
   const location = {
     latitude: objPosition.coords.latitude,
@@ -28,23 +28,24 @@ export const schoolSlice = createSlice({
   initialState,
   reducers: {
     setSchoolName: (state, action) => {
-      state.schoolName = action.payload.schoolName;
+      state.schoolName = action.payload;
     },
     setLocation: (state, action) => {
-      state.location = action.payload.location;
+      state.location = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder
+      .addCase(fetchLocation.pending, (state) => {
+        state.status = "loading";
+      })
       .addCase(fetchLocation.fulfilled, (state, action) => {
+        state.status = "succeeded";
         state.location = action.payload.location;
       })
       .addCase(fetchLocation.rejected, (state, action) => {
-        state.status = "error";
+        state.status = "failed";
         state.error = action.error.message;
-      })
-      .addCase(fetchLocation.pending, (state) => {
-        state.status = "loading";
       });
   },
 });
