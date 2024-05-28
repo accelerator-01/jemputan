@@ -1,9 +1,10 @@
-import TableQueue from "./TableQueue";
 function Guru() {
   return (
     <div>
-      <h1>Daftar Kelas yang pulang saat ini</h1>
-      <TableQueue />
+      <div>Daftar Kelas</div>
+      <ul>
+        <li>kelas 1A</li>
+      </ul>
     </div>
   );
 }

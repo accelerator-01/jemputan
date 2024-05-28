@@ -63,7 +63,7 @@ Button.propTypes = {
   size: PropTypes.oneOf(["sm", "md", "lg"]),
   className: PropTypes.node,
   to: PropTypes.node,
-  onClick: PropTypes.node,
+  onClick: PropTypes.func,
 };
 
 export default Button;
