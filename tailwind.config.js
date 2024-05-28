@@ -5,6 +5,7 @@ export default {
     extend: {
       backgroundImage: {
         background_1: "url('./background_3.png')",
+        background_2: "url('./subtle-prism.svg')",
       },
       backgroundSize: {
         cover: "cover",

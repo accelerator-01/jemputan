@@ -61,7 +61,7 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.oneOf(["blue", "red", "green", "yellow"]),
   size: PropTypes.oneOf(["sm", "md", "lg"]),
-  className: PropTypes.node.isRequired,
+  className: PropTypes.node,
   to: PropTypes.node,
   onClick: PropTypes.node,
 };

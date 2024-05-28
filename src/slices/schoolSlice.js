@@ -6,15 +6,18 @@ function getPosition() {
   });
 }
 
-const fetchLocation = createAsyncThunk("school/fetchLocation", async () => {
-  const objPosition = await getPosition();
-  const location = {
-    latitude: objPosition.coords.latitude,
-    longitude: objPosition.coords.longitude,
-  };
+export const fetchLocation = createAsyncThunk(
+  "school/fetchLocation",
+  async () => {
+    const objPosition = await getPosition();
+    const location = {
+      latitude: objPosition.coords.latitude,
+      longitude: objPosition.coords.longitude,
+    };
 
-  return { location };
-});
+    return { location };
+  }
+);
 
 const initialState = {
   schoolName: "",

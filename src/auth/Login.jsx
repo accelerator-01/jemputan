@@ -3,7 +3,7 @@ function Login() {
     <>
       <div className="bg-blue-200 h-48 rounded-md mb-4">
         <form>
-          <div className="mb-4">
+          <div className="mb-4 p-1">
             <label
               htmlFor="nomorhp"
               className="block text-gray-700 font-bold mb-2"
@@ -17,7 +17,7 @@ function Login() {
               placeholder="Masukkan Nomor Hp"
             />
           </div>
-          <div className="mb-4">
+          <div className="mb-4 p-1">
             <label
               htmlFor="password"
               className="block text-gray-700 font-bold mb-2"
