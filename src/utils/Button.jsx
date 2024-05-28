@@ -67,8 +67,12 @@ Button.propTypes = {
 =======
   className: PropTypes.node,
   to: PropTypes.node,
+<<<<<<< HEAD
   onClick: PropTypes.node,
 >>>>>>> 6b34ddc1f331e5a326a8d9f30cd7b146b015e73b
+=======
+  onClick: PropTypes.func,
+>>>>>>> 99902861ad9863288fb469e7d61f6b088e80691f
 };
 
 export default Button;

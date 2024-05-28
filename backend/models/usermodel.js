@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt'
 
 const userData = new mongoose.Schema({
     nomorhp : {
-        type : Number,
+        type : String,
         required : true,
         unique : true
     },
@@ -13,6 +13,7 @@ const userData = new mongoose.Schema({
     },
     role : {
         type : String,
+        required : true,
         enum : ['Guru','Wali Murid'],
         default : 'Wali Murid'
     },
