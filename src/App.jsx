@@ -7,6 +7,8 @@ import Guru from "./components/guru/Guru";
 import Wali from "./components/wali/Wali";
 import Error from "./utils/Error";
 import AuthCard from "./auth/AuthCard";
+import SchoolRegistration from "./pages/SchoolRegistration";
+import TableList from "./components/guru/TableList";
 // import { Loader as loader } from "./utils/Loader";
 import "./index.css";
 
@@ -16,17 +18,18 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/auth", element: <AuthCard /> },
+      { path: "/school-registration", element: <SchoolRegistration /> },
       {
         path: "/guru",
         element: <Guru />,
-        // errorElement: <Error />,
-        // loader: loader,
+      },
+      {
+        path: "/guru/list-queue",
+        element: <TableList />,
       },
       {
         path: "/wali",
         element: <Wali />,
-        // errorElement: <Error />,
-        // loader: loader,
       },
     ],
   },

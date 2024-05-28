@@ -4,7 +4,7 @@ const initialState = {
   fullName: "",
   phoneNumber: "",
   password: "",
-  role: "Guru" || "Wali",
+  role: "",
 };
 
 const userSlice = createSlice({
@@ -12,16 +12,16 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setFullName: (state, action) => {
-      state.fullName = action.payload;
+      state.fullName = action.payload.fullName;
     },
     setPhoneNumber: (state, action) => {
-      state.phoneNumber = action.payload;
+      state.phoneNumber = action.payload.phoneNumber;
     },
     setPassword: (state, action) => {
-      state.password = action.payload;
+      state.password = action.payload.password;
     },
     setRole: (state, action) => {
-      state.role = action.payload;
+      state.role = action.payload.role;
     },
   },
 });

@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 
 function DirectLink({ children, to, onClick }) {
   const navigate = useNavigate();
-  const className = "text-sm text-blue-500 hover:text-blue-600 hover:underline";
+  const className =
+    "text-base m-4 text-blue-500 hover:text-blue-600 hover:underline";
 
   if (to === "-1")
     return (
@@ -29,7 +30,7 @@ function DirectLink({ children, to, onClick }) {
 
 DirectLink.propTypes = {
   children: PropTypes.node.isRequired,
-  to: PropTypes.node.isRequired,
+  to: PropTypes.node,
   onClick: PropTypes.node,
 };
 

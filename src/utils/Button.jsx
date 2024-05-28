@@ -61,8 +61,14 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   color: PropTypes.oneOf(["blue", "red", "green", "yellow"]),
   size: PropTypes.oneOf(["sm", "md", "lg"]),
+<<<<<<< HEAD
   className: PropTypes.node.isRequired,
   onClick: PropTypes.node.isRequired,
+=======
+  className: PropTypes.node,
+  to: PropTypes.node,
+  onClick: PropTypes.node,
+>>>>>>> 6b34ddc1f331e5a326a8d9f30cd7b146b015e73b
 };
 
 export default Button;

@@ -1,11 +1,29 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
+function getPosition() {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+}
+
+export const fetchLocation = createAsyncThunk(
+  "school/fetchLocation",
+  async () => {
+    const objPosition = await getPosition();
+    const location = {
+      latitude: objPosition.coords.latitude,
+      longitude: objPosition.coords.longitude,
+    };
+
+    return { location };
+  }
+);
 
 const initialState = {
   schoolName: "",
-  location: {
-    latitude: Float64Array,
-    longitude: Float64Array,
-  },
+  location: {},
+  status: "idle",
+  error: null,
 };
 
 export const schoolSlice = createSlice({
@@ -18,6 +36,20 @@ export const schoolSlice = createSlice({
     setLocation: (state, action) => {
       state.location = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchLocation.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchLocation.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.location = action.payload.location;
+      })
+      .addCase(fetchLocation.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      });
   },
 });
 
