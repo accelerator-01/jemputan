@@ -1,5 +1,4 @@
 import axios from "axios";
-import { json } from "body-parser";
 import React, { useState } from "react";
 
 const Register = () => {
