@@ -5,6 +5,20 @@ function Login() {
         <form>
           <div className="mb-4 p-1">
             <label
+              htmlFor="username"
+              className="block text-gray-700 font-bold mb-2"
+            >
+              Nama Lengkap
+            </label>
+            <input
+              type="username"
+              id="username"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              placeholder="Masukkan Nama Lengkap Anda"
+            />
+          </div>
+          <div className="mb-4 p-1">
+            <label
               htmlFor="nomorhp"
               className="block text-gray-700 font-bold mb-2"
             >
