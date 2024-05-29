@@ -12,6 +12,13 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
     "axios": "^1.6.8",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "json-server": "^1.0.0-beta.0",
+    "mongoose": "^8.4.0",
+    "nodemon": "^3.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.2",
