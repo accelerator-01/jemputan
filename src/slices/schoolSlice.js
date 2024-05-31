@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { getAddress } from "../services/apiGeocoding";
 
 function getPosition() {
   return new Promise((resolve, reject) => {
@@ -6,16 +7,22 @@ function getPosition() {
   });
 }
 
-export const fetchLocation = createAsyncThunk(
-  "school/fetchLocation",
+export const fetchAddress = createAsyncThunk(
+  "school/fetchAddress",
   async () => {
-    const objPosition = await getPosition();
-    const location = {
-      latitude: objPosition.coords.latitude,
-      longitude: objPosition.coords.longitude,
+    // 1) we get the user geolocation position
+    const positionObj = await getPosition();
+    const position = {
+      latitude: positionObj.coords.latitude,
+      longitude: positionObj.coords.longitude,
     };
+    // 2) use the reverse geocoding API to get the address
+    const addressObj = await getAddress(position);
+    const address = `${addressObj?.locality}, ${addressObj?.city} ${addressObj?.postcode}, ${addressObj?.countryName}`;
 
-    return { location };
+    // 3) Then we return an object with the data that we are interested in
+    // Payload of the fullfiled state
+    return { position, address };
   }
 );
 
@@ -33,25 +40,24 @@ export const schoolSlice = createSlice({
     setSchoolName: (state, action) => {
       state.schoolName = action.payload;
     },
-    setLocation: (state, action) => {
-      state.location = action.payload;
-    },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchLocation.pending, (state) => {
+      .addCase(fetchAddress.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(fetchLocation.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.location = action.payload.location;
+      .addCase(fetchAddress.fulfilled, (state, action) => {
+        state.position = action.payload.position;
+        state.address = action.payload.address;
+        state.status = "idle";
       })
-      .addCase(fetchLocation.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
+      .addCase(fetchAddress.rejected, (state) => {
+        state.status = "error";
+        state.error =
+          "There was a problem getting your address. Please make sure fill this field!";
       });
   },
 });
 
-export const { setSchoolName, setLocation } = schoolSlice.actions;
+export const { setSchoolName } = schoolSlice.actions;
 export default schoolSlice.reducer;
