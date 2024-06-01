@@ -36,11 +36,6 @@ const initialState = {
 export const schoolSlice = createSlice({
   name: "school",
   initialState,
-  reducers: {
-    setSchoolName: (state, action) => {
-      state.schoolName = action.payload;
-    },
-  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchAddress.pending, (state) => {
@@ -59,5 +54,5 @@ export const schoolSlice = createSlice({
   },
 });
 
-export const { setSchoolName } = schoolSlice.actions;
+// export const { setSchoolName } = schoolSlice.actions;
 export default schoolSlice.reducer;

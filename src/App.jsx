@@ -7,7 +7,7 @@ import Guru from "./components/guru/Guru";
 import Wali from "./components/wali/Wali";
 import Error from "./utils/Error";
 import AuthCard from "./auth/AuthCard";
-import SchoolRegistration from "./pages/SchoolRegistration";
+import SchoolRegistration from "./auth/SchoolRegistration";
 import TableList from "./components/guru/TableList";
 // import { Loader as loader } from "./utils/Loader";
 import "./index.css";
