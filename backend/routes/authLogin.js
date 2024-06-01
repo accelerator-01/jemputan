@@ -16,7 +16,7 @@ const generateToken = (id) => {
 };
 
 const authLogin = router.post("/login", async (req, res) => {
-  const { phoneNumber, password } = req.body;
+  const { role, phoneNumber, password } = req.body;
 
   if (!phoneNumber || !password) {
     return res.status(400).json({ message: "Please fill all the fields" });
