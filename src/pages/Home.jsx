@@ -1,6 +1,3 @@
-// import { useState } from "react";
-// import Login from "../auth/Login";
-// import Register from "../auth/Register";
 import Button from "../utils/Button";
 import Footer from "../pages/Footer";
 import Header from "../pages/Header";
