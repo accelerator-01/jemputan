@@ -43,7 +43,7 @@ function Login() {
 
   return (
     <div className="bg-gray-100 h-[260px] rounded-md mb-2">
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} method="GET">
         <div className="mb-2 p-1">
           <label className="block text-gray-700 font-bold mb-2">Nomor Hp</label>
           <input
