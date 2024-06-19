@@ -1,3 +1,4 @@
+import Button from "../utils/Button";
 function Register() {
   return (
     <>
@@ -46,6 +47,9 @@ function Register() {
             />
           </div>
         </form>
+        <Button size="sm" color="sm">
+          Daftar
+        </Button>
       </div>
     </>
   );
